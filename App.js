@@ -3,7 +3,6 @@ import { SafeAreaView, StatusBar } from 'react-native';
 import CurrentPrice from "./src/components/CurrentPrice"
 import HistoryGraphic from "./src/components/HistoryGraphic"
 import QuotationsList from "./src/components/QuotationsList"
-import QuotationsItems from "./src/components/QuotationsList/QuotationsItem"
 import styles from "./styles"
 
 function addNumber0(number){
@@ -59,10 +58,15 @@ export default function App() {
   const [ coinsGraphList, setCoinsGraphList] = useState([0]);
   const [ days, setDays ] = useState(30);
   const [ updateData, setUpdateData ] = useState(true);
+  const [ price, setPrice ] = useState();
 
   function updateDay(number) {
     setDays(number);
     setUpdateData(true);
+  }
+
+  function priceCotation(){
+    setPrice(coinsGraphList.pop())
   }
 
   useEffect(() => {
@@ -73,7 +77,7 @@ export default function App() {
     getPriceCoinsGhapic(url(days)).then((dataGraph) => {
       setCoinsGraphList(dataGraph);
     });
-
+    priceCotation();
     if(updateData){
       setUpdateData(false);
     }
@@ -85,10 +89,16 @@ export default function App() {
         backgroundColor="#ffff"
         barStyle="dark-content"
       />
-      <CurrentPrice/>
-      <HistoryGraphic/>
-      <QuotationsList/>
-      <QuotationsItems/>
+      <CurrentPrice
+        lastCotation={price}
+      />
+      <HistoryGraphic
+        infoDataGraph={coinsGraphList}
+      />
+      <QuotationsList 
+        filterDay={updateDay}
+        listTransactions={coinsList}
+      />
     </SafeAreaView>
   );
 }
