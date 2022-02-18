@@ -3,7 +3,6 @@ import { View, Text } from "react-native"
 import styles from "./style"
 
 export default function CurrentPrice(props) {
-    console.log(props)
     return (
         <View style={styles.headerPrice}>
             <Text style={styles.currentPrice}>Cotação</Text>
