@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Bitcoin",
-    "slug": "bitcoin",
+    "name": "Bitcoin app",
+    "slug": "bitcoin-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,9 +24,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.rafaelccorrea.bitcoinapp"
-    },
-    "package": "Rafael Correa",
-    "versionCode": 1
+      "package": "com.rafaelccorrea.bitcoin",
+      "versionCode": 1
+    }    
   }
 }
