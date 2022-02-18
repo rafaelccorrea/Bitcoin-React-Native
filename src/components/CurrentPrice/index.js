@@ -6,8 +6,8 @@ export default function CurrentPrice(props) {
     console.log(props)
     return (
         <View style={styles.headerPrice}>
-            <Text style={styles.currentPrice}>$ {props.lastCotation}</Text>
-            <Text style={styles.textTitle}>Ultima cotação </Text>
+            <Text style={styles.currentPrice}>Cotação</Text>
+            <Text style={styles.textTitle}>Bitcoin </Text>
         </View>
     )
 }
