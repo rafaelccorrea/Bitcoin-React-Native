@@ -2,7 +2,8 @@ import React from "react"
 import { View, Text } from "react-native"
 import styles from "./style"
 
-export default function CurrentPrice (props) {
+export default function CurrentPrice(props) {
+    console.log(props)
     return (
         <View style={styles.headerPrice}>
             <Text style={styles.currentPrice}>$ {props.lastCotation}</Text>

@@ -54,7 +54,7 @@ async function getPriceCoinsGhapic(url) {
 
 export default function App() {
 
-  const [coinsList, setCoinsList] = useState([]);
+  const [ coinsList, setCoinsList] = useState([]);
   const [ coinsGraphList, setCoinsGraphList] = useState([0]);
   const [ days, setDays ] = useState(30);
   const [ updateData, setUpdateData ] = useState(true);
@@ -66,10 +66,11 @@ export default function App() {
   }
 
   function priceCotation(){
-    setPrice(coinsGraphList.pop())
-  }
+    setPrice(coinsGraphList.pop());
+  };
 
   useEffect(() => {
+
     getListCoins(url(days)).then((data) => {
       setCoinsList(data);
     });
@@ -77,7 +78,9 @@ export default function App() {
     getPriceCoinsGhapic(url(days)).then((dataGraph) => {
       setCoinsGraphList(dataGraph);
     });
+
     priceCotation();
+
     if(updateData){
       setUpdateData(false);
     }
